@@ -1,7 +1,7 @@
 package it.alfasoft.francesca.model;
 
 public class Fattura {
-
+	
 	private String codiceCliente;
 	private double importo;
 	private String ragioneSociale;
@@ -38,7 +38,5 @@ public class Fattura {
 	public void setRagioneSociale(String ragioneSociale) {
 		this.ragioneSociale = ragioneSociale;
 	}
-	
-	
-	
+
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://service.francesca.alfasoft.it" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.francesca.alfasoft.it" xmlns:intf="http://service.francesca.alfasoft.it" xmlns:tns1="http://model.francesca.alfasoft.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://servizi.francesca.alfasoft.it" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servizi.francesca.alfasoft.it" xmlns:intf="http://servizi.francesca.alfasoft.it" xmlns:tns1="http://model.francesca.alfasoft.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
-  <schema elementFormDefault="qualified" targetNamespace="http://service.francesca.alfasoft.it" xmlns="http://www.w3.org/2001/XMLSchema">
+  <schema elementFormDefault="qualified" targetNamespace="http://servizi.francesca.alfasoft.it" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://model.francesca.alfasoft.it"/>
    <element name="getFatturaByCode">
     <complexType>
@@ -49,17 +49,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getFattureResponse">
+   <wsdl:message name="getFatturaByCodeRequest">
 
-      <wsdl:part element="impl:getFattureResponse" name="parameters">
+      <wsdl:part element="impl:getFatturaByCode" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="getFatturaByCodeRequest">
+   <wsdl:message name="getFattureResponse">
 
-      <wsdl:part element="impl:getFatturaByCode" name="parameters">
+      <wsdl:part element="impl:getFattureResponse" name="parameters">
 
       </wsdl:part>
 
@@ -73,7 +73,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:portType name="FatturaService">
+   <wsdl:portType name="FatturaServizi">
 
       <wsdl:operation name="getFatturaByCode">
 
@@ -101,7 +101,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:portType>
 
-   <wsdl:binding name="FatturaServiceSoapBinding" type="impl:FatturaService">
+   <wsdl:binding name="FatturaServiziSoapBinding" type="impl:FatturaServizi">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
@@ -143,11 +143,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:binding>
 
-   <wsdl:service name="FatturaServiceService">
+   <wsdl:service name="FatturaServiziService">
 
-      <wsdl:port binding="impl:FatturaServiceSoapBinding" name="FatturaService">
+      <wsdl:port binding="impl:FatturaServiziSoapBinding" name="FatturaServizi">
 
-         <wsdlsoap:address location="http://localhost:8085/EsempioFatture/services/FatturaService"/>
+         <wsdlsoap:address location="http://localhost:8085/EsempioFatture/services/FatturaServizi"/>
 
       </wsdl:port>
 

@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public class FatturaDao {
-	
 	private Map<String,Fattura> fatture;
 	private Fattura[] arr=new Fattura[5];
 
@@ -19,6 +18,12 @@ public class FatturaDao {
 		Fattura f3=new Fattura("cod003",1340,"Azienda 3");
 		Fattura f4=new Fattura("cod004",800,"Azienda 4");
 		Fattura f5=new Fattura("cod005",2700,"Azienda 5");
+		fatture.put("cod001", f1);
+		fatture.put("cod002", f2);
+		fatture.put("cod003", f3);
+		fatture.put("cod004", f4);
+		fatture.put("cod005", f5);
+
 	}
 	
 	public Fattura[] getAllFatture(){
@@ -32,4 +37,5 @@ public class FatturaDao {
 	public Fattura getFatturaByCode(String code){
 		return fatture.get(code);
 	}
+
 }

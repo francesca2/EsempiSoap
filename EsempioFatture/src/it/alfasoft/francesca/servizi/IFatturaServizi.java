@@ -1,12 +1,8 @@
-package it.alfasoft.francesca.service;
+package it.alfasoft.francesca.servizi;
 
 import it.alfasoft.francesca.model.Fattura;
 
-import java.util.List;
-
-import javax.jws.WebMethod;
-
-public interface IFatturaService {
+public interface IFatturaServizi {
 
 	public abstract Fattura[] getFatture();
 

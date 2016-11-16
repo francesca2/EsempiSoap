@@ -9,7 +9,7 @@
 <undeployment
     xmlns="http://xml.apache.org/axis/wsdd/">
 
-  <!-- Services from FatturaServiceService WSDL service -->
+  <!-- Services from FatturaServiziService WSDL service -->
 
-  <service name="FatturaService"/>
+  <service name="FatturaServizi"/>
 </undeployment>

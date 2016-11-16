@@ -22,19 +22,19 @@
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
- <ns1:service name="FatturaService" provider="java:RPC" style="wrapped" use="literal">
-  <ns3:operation name="getFatturaByCode" qname="ns1:getFatturaByCode" returnQName="ns1:getFatturaByCodeReturn" returnType="ns2:Fattura" soapAction="" xmlns:ns1="http://service.francesca.alfasoft.it" xmlns:ns2="http://model.francesca.alfasoft.it" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+ <ns1:service name="FatturaServizi" provider="java:RPC" style="wrapped" use="literal">
+  <ns3:operation name="getFatturaByCode" qname="ns1:getFatturaByCode" returnQName="ns1:getFatturaByCodeReturn" returnType="ns2:Fattura" soapAction="" xmlns:ns1="http://servizi.francesca.alfasoft.it" xmlns:ns2="http://model.francesca.alfasoft.it" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
    <ns3:parameter qname="ns1:code" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns3:operation>
-  <ns1:operation name="getFatture" qname="ns3:getFatture" returnQName="ns3:getFattureReturn" returnType="ns4:Fattura" soapAction="" xmlns:ns3="http://service.francesca.alfasoft.it" xmlns:ns4="http://model.francesca.alfasoft.it"/>
+  <ns1:operation name="getFatture" qname="ns3:getFatture" returnQName="ns3:getFattureReturn" returnType="ns4:Fattura" soapAction="" xmlns:ns3="http://servizi.francesca.alfasoft.it" xmlns:ns4="http://model.francesca.alfasoft.it"/>
   <ns1:parameter name="allowedMethods" value="getFatturaByCode getFatture"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="FatturaService"/>
-  <ns1:parameter name="className" value="it.alfasoft.francesca.service.FatturaService"/>
-  <ns1:parameter name="wsdlServicePort" value="FatturaService"/>
-  <ns1:parameter name="schemaQualified" value="http://model.francesca.alfasoft.it,http://service.francesca.alfasoft.it"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://service.francesca.alfasoft.it"/>
-  <ns1:parameter name="wsdlServiceElement" value="FatturaServiceService"/>
+  <ns1:parameter name="wsdlPortType" value="FatturaServizi"/>
+  <ns1:parameter name="className" value="it.alfasoft.francesca.servizi.FatturaServizi"/>
+  <ns1:parameter name="wsdlServicePort" value="FatturaServizi"/>
+  <ns1:parameter name="schemaQualified" value="http://model.francesca.alfasoft.it,http://servizi.francesca.alfasoft.it"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://servizi.francesca.alfasoft.it"/>
+  <ns1:parameter name="wsdlServiceElement" value="FatturaServiziService"/>
   <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns5:Fattura" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:it.alfasoft.francesca.model.Fattura" xmlns:ns5="http://model.francesca.alfasoft.it"/>
  </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
