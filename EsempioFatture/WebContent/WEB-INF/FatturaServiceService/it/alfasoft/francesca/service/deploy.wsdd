@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FatturaServiceService WSDL service -->
+
+  <service name="FatturaService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.francesca.alfasoft.it"/>
+      <parameter name="wsdlServiceElement" value="FatturaServiceService"/>
+      <parameter name="schemaQualified" value="http://model.francesca.alfasoft.it,http://service.francesca.alfasoft.it"/>
+      <parameter name="wsdlServicePort" value="FatturaService"/>
+      <parameter name="className" value="it.alfasoft.francesca.service.FatturaService"/>
+      <parameter name="wsdlPortType" value="FatturaService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.francesca.alfasoft.it" xmlns:retNS="http://service.francesca.alfasoft.it" xmlns:rtns="http://model.francesca.alfasoft.it" name="getFatturaByCode" qname="operNS:getFatturaByCode" returnQName="retNS:getFatturaByCodeReturn" returnType="rtns:Fattura" soapAction="">
+        <parameter xmlns:pns="http://service.francesca.alfasoft.it" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:code" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.francesca.alfasoft.it" xmlns:retNS="http://service.francesca.alfasoft.it" xmlns:rtns="http://model.francesca.alfasoft.it" name="getFatture" qname="operNS:getFatture" returnQName="retNS:getFattureReturn" returnType="rtns:Fattura" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="getFatturaByCode getFatture"/>
+
+      <typeMapping xmlns:ns="http://model.francesca.alfasoft.it" qname="ns:Fattura" type="java:it.alfasoft.francesca.model.Fattura" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
