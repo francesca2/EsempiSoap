@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class FatturaDao {
 	private Map<String,Fattura> fatture;
-	private Fattura[] arr=new Fattura[5];
+	private Fattura[] arr;
 
 	public FatturaDao() {
 		fatture=new HashMap<String,Fattura>();
@@ -28,6 +28,7 @@ public class FatturaDao {
 	
 	public Fattura[] getAllFatture(){
 		List<Fattura> lista=new ArrayList<Fattura>(fatture.values());
+		arr=new Fattura[lista.size()];
 		for(int i=0; i<5; i++){
 			arr[i]=lista.get(i);
 		}
