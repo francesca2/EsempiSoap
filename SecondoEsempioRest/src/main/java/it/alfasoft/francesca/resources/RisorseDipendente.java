@@ -1,4 +1,4 @@
-package it.alfasoft.francesca.PrimoEsempioRest;
+package it.alfasoft.francesca.resources;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,13 +45,13 @@ public class RisorseDipendente {
 //	}
 	
 	//Prendere un dipendente con json
-//	@Path("/{codiceDipendente}")
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Dipendente getDipendenteByCode(@PathParam("codiceDipendente") String codiceDipendente){
-//		
-//		return ddao.getDipendenti().get(codiceDipendente);
-//	}
+	@Path("/{codiceDipendente}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Dipendente getDipendenteByCode(@PathParam("codiceDipendente") String codiceDipendente){
+		
+		return ddao.getDipendenti().get(codiceDipendente);
+	}
 	
 //	@POST
 //	@Produces(MediaType.APPLICATION_JSON)
@@ -90,4 +90,20 @@ public class RisorseDipendente {
 		return ddao.getDipendenti().get(codiceDipendente);
 	}
 	
+	//Se viene un url di questo tipo:
+	//http://localhost:8085/NomeAplicazione/alfasoft/dipendenti/{codiceDipendente}/bustepaghe
+	//arriva a questo metodo e viene reindirizzato a risorseBusta
+	@Path("/{codiceDipendente}/bustepaghe")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public RisorseBuste getBustaPaga(){
+		return new RisorseBuste();
+	}
 }
+
+
+
+
+
+
+

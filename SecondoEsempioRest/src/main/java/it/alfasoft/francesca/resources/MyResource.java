@@ -1,4 +1,4 @@
-package it.alfasoft.francesca.PrimoEsempioRest;
+package it.alfasoft.francesca.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
