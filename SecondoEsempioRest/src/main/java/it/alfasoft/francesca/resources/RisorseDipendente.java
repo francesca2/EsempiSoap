@@ -94,8 +94,6 @@ public class RisorseDipendente {
 	//http://localhost:8085/NomeAplicazione/alfasoft/dipendenti/{codiceDipendente}/bustepaghe
 	//arriva a questo metodo e viene reindirizzato a risorseBusta
 	@Path("/{codiceDipendente}/bustepaghe")
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
 	public RisorseBuste getBustaPaga(){
 		return new RisorseBuste();
 	}
