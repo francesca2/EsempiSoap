@@ -12,6 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import it.alfasoft.francesca.dao.DipendenteDao;
 import it.alfasoft.francescal.model.Dipendente;
@@ -29,12 +31,12 @@ public class RisorseDipendente {
 //		return ddao.getDipendenti().get(codiceDipendente);
 //	}
 	
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<Dipendente> getDipendenti(){
-//			
-//		return new ArrayList<Dipendente>(ddao.getDipendenti().values());
-//	}
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Dipendente> getDipendenti(){
+			
+		return new ArrayList<Dipendente>(ddao.getDipendenti().values());
+	}
 	
 //	@Path("/{num}")
 //	@GET
@@ -53,13 +55,16 @@ public class RisorseDipendente {
 		return ddao.getDipendenti().get(codiceDipendente);
 	}
 	
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public void addDipendente(Dipendente d){
-//		
-//		ddao.getDipendenti().put(d.getCodice(), d);
-//		System.out.println(d.getNome() + " " + d.getCognome());
-//	}
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response addDipendente(Dipendente d){
+		
+		ddao.getDipendenti().put(d.getCodice(), d);
+		
+		System.out.println("Post arrivato!" + d.getNome() +" " + d.getCognome());
+		return Response.status(Status.CREATED)
+				.build();
+	}
 	
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
@@ -82,13 +87,13 @@ public class RisorseDipendente {
 		}
 	}
 	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public Dipendente sendParametri(@QueryParam("codice") String codiceDipendente, @QueryParam("num") int num){
-		
-		System.out.println(codiceDipendente +" " + (num+num));
-		return ddao.getDipendenti().get(codiceDipendente);
-	}
+//	@GET
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Dipendente sendParametri(@QueryParam("codice") String codiceDipendente, @QueryParam("num") int num){
+//		
+//		System.out.println(codiceDipendente +" " + (num+num));
+//		return ddao.getDipendenti().get(codiceDipendente);
+//	}
 	
 	//Se viene un url di questo tipo:
 	//http://localhost:8085/NomeAplicazione/alfasoft/dipendenti/{codiceDipendente}/bustepaghe
