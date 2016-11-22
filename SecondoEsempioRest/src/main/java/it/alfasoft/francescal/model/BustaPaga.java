@@ -1,5 +1,8 @@
 package it.alfasoft.francescal.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -8,6 +11,7 @@ public class BustaPaga {
 	private long id_Busta;
 	private double importo;
 	private String codiceDipendente;
+	private List<Link> riferimenti=new ArrayList<Link>();
 	
 	public BustaPaga() {
 	}
@@ -34,5 +38,13 @@ public class BustaPaga {
 	public void setCodiceDipendente(String codiceDipendente) {
 		this.codiceDipendente = codiceDipendente;
 	}
-	
+	public List<Link> getRiferimenti() {
+		return riferimenti;
+	}
+	public void setRiferimenti(List<Link> riferimenti) {
+		this.riferimenti = riferimenti;
+	}
+	public void addLink(Link link){
+		this.riferimenti.add(link);
+	}
 }

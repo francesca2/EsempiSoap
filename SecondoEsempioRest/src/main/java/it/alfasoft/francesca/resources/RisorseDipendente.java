@@ -11,12 +11,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.core.Response.Status;
 
 import it.alfasoft.francesca.dao.DipendenteDao;
 import it.alfasoft.francescal.model.Dipendente;
+import it.alfasoft.francescal.model.Link;
 
 @Path("dipendenti")
 public class RisorseDipendente {
@@ -50,7 +53,23 @@ public class RisorseDipendente {
 	@Path("/{codiceDipendente}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Dipendente getDipendenteByCode(@PathParam("codiceDipendente") String codiceDipendente){
+	public Dipendente getDipendenteByCode(@PathParam("codiceDipendente") String codiceDipendente,
+			@Context UriInfo uriInfo){
+		
+		Dipendente d = ddao.getDipendenti().get(codiceDipendente);
+		String link = uriInfo.getBaseUriBuilder()
+				.path(RisorseDipendente.class)
+				.path(codiceDipendente)
+				.build()
+				.toString();
+		d.addLink(link, "self");	
+		String linkBuste = uriInfo.getBaseUriBuilder()
+				.path(RisorseDipendente.class)
+				.path(codiceDipendente)
+				.path("bustepaghe")
+				.build()
+				.toString();
+		d.addLink(linkBuste,"self");
 		
 		return ddao.getDipendenti().get(codiceDipendente);
 	}
